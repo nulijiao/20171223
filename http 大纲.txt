@@ -1,0 +1,167 @@
+xampp apache
+1：
+http （无状态的协议）  socket 
+https  客户端和服务器端交互  ssl加密  https://www.alipay.com  443
+
+
+http://www.163.com:8080/welcome/index   (restful访问方式)
+http://www.163.com/index.php  （文件的方式）
+默认的端口号80  
+index.php?name=laoshan  welcome/index?name=laoshan  welcome/index/laoshan
+
+单域名对应多IP  DNS解析服务  222.27.89.3
+
+2：OSI七层结构  http（应用层 协议 公开和不公开）
+公开：http ftp  tftp pop3 smtp   RFC文档
+不公开：QQ、MSN、YY
+
+tcp(RPC(表示层（YY({'name':'laoshan','age':40})））) 上4层协议 
+
+$.post('地址',{json数据},function(){},'text');
+
+
+读取文件 两种形式  本地读取fopen  远程读取
+
+应用层->表示层   <p>sdfsdfdsdf</p> gzip  welcome/index加密 base64
+base64_encode  base64_decode
+
+
+F5是软刷新（有缓存文件）  Ctrl+F5是硬刷新（不管有没有缓存）
+
+http(包头、包体)
+
+包头（请求头、响应头）
+
+传递string  html  
+
+http/1.1  0.9 1 2
+
+模拟HTTP请求
+请求行（请求方法、请求路径、所用的协议）
+telnet GET提交
+请求方法  GET POST PUT DELETE HEAD OPTIONS TRACE
+
+GET  http://www.163.com/index.php?name=laoshan  url
+
+打开telnet回显功能 ctrl+]
+
+请求头信息
+
+请求主体信息
+
+响应头信息  status code 200
+
+Content-type:text/html
+Content-length:5
+
+username=laoshan&age=4
+
+hello
+
+name=laoshan&age=30
+
+POST /http1/test2.php HTTP/1.1
+Host:localhost
+
+
+
+
+hello包体的内容  <h1>hello</h1>
+
+总结HTTP构造包
+
+GET(请求方法、请求路径、请求协议)  
+
+
+POST(请求方法、请求路径、请求协议)  
+包头内容  Content-type  Content-length
+
+包体内容
+
+HEAD和GET基本一致 发送请求不返回请求地址的内容
+
+GET /welcome/index HTTP/1.1
+Host:www.hrbyueju.com
+
+HEAD /welcome/index HTTP/1.1
+Host:www.hrbyueju.com
+
+PUT 想服务器传输内容  PUT 
+Method not allowed   405 
+
+Status code 200 405 302(临时重定向) 301(持久重定向) 307
+
+OPTIONS(返回服务器方法)
+
+Allow:GET,HEAD,POST,OPTIONS
+
+TRACE  如果你是用代理上网的  看到代理有没有修改你的HTTP请求
+
+DELETE 删除服务器上的一些资源
+
+http  status 
+
+1xx  保留    2xx 成功  3xx 重定向(301 302) 4xx 客户端错误  5xx 服务器错误
+
+304 not modified未修改
+
+304 确定当前浏览器缓存里面的内容有没有改变  时间、文件
+last-modify:服务器上的文件最后被改动的时间
+Etag:d890-55f46f66ba463
+
+md5
+
+php处理的页面 和 VUE处理的页面 有什么区别
+
+后端渲染  template+data 服务器端完成
+前端渲染  template  json data chrome端完成组装
+
+1：减少HTTP连接
+2：减少回传数据的大小  webpack  js/image/css
+3：优化HTTP头
+
+GET /http1/google.jpg HTTP/1.1
+Host:localhost
+If-Modified-Since:Fri, 01 Dec 2017 13:01:10 GMT
+If-None-Match:"d890-55f46f66ba463"
+
+301/302(永久重定向/临时重定向) robots  SEO  
+302 A-->B  A内容依然爬虫还是要访问
+301 A-->B  A内容爬虫不爬
+
+POST数据 在跳转的时候不丢失
+
+referer 防盗链 apache出重写模块 mod_rewriter .htaccess重定向文件 
+
+Host:www.hrbyueju.com
+Referer:http://localhost/http1/5.php
+
+header跳转 是包头跳转 先执行
+script location 是包体跳转 发起了一次GET操作 200
+
+
+
+
+
+1：客户端 与 
+webservice = http + xml
+restful  = http + json
+
+POST /http/test2.php HTTP/1.1
+Host:localhost
+Content-type:application/x-www-form-urlencoded
+Content-length:23
+
+GET /welcome/index HTTP/1.1
+Host:www.hrbyueju.com
+
+HEAD /welcome/index HTTP/1.1
+Host:www.hrbyueju.com
+
+OPTIONS / HTTP/1.1
+Host:www.hrbyueju.com
+
+GET /http/google.jpg HTTP/1.1
+Host:localhost
+If-Modified-Since:Fri, 01 Dec 2017 07:27:32 GMT
+If-None-Match:"5d2a-55f424d4c5df6"
